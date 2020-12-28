@@ -1,10 +1,10 @@
 {{ partial "header.html" . }}
 
-<div id="post-index" class="container" itemscope="" itemtype="https://schema.org/Blog">
+<div id="post-index" class="container">
     {{ partial "intro.html" . }}
 
     <ol class="post-list">
-        {{ $pag := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+        {{ $pag := .Paginate .Pages }}
         {{ range $pag.Pages }}
             {{ partial "post-stub.html" . }}
         {{ end }}
